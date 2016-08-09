@@ -1,0 +1,31 @@
+<div class="container-fluid">
+	<h3><%= name %> articulo</h3>
+	<%= form_for(@article) do |f| %>
+		<% @article.errors.full_messages.each do |message| %>
+			<div style="color:#f44336;">
+				*<%= message %>
+			</div>
+		<%end%>
+		<div class="form-group">
+			<%= f.text_field :title, placeholder: "Titulo", class:"form-control" %>
+		</div>
+		<div class="form-group">
+			<div class="alert alert-info">Portada del articulo:</div> 
+			<%= f.file_field :cover %>
+		</div>
+		<div class="form-group">
+			<%= f.text_area :body, placeholder: "Escribe aquí el artículo", class:"form-control", rows:"3" %>
+		</div>
+		<div class="form-group">
+			<div class="alert alert-info">Categorías:</div>
+			<% @categories.each do |category| %>
+				<div class="col-md">
+					<%= check_box_tag "categories[]", category.id %> <%= category.name %>
+				</div>
+			<%end%>
+		</div>
+		<div class="form-group">
+			<%= f.submit "Guardar articulo", class: "btn btn-success btn-lg" %>
+		</div>
+	<%end%>
+</div>

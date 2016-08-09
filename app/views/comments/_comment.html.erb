@@ -1,0 +1,12 @@
+<ul id="comments-box">
+	<div class="panel panel-info">
+  		<div class="panel-heading">
+    		<h3 class="panel-title"><%= image_tag(comment.user.avatar) %> <%= current_user.email %></h3>
+  		</div>
+  		<div class="panel-body">
+    		<%= comment.body %>
+  		</div>
+  		<div class="panel-footer"><%= time_ago_in_words(comment.created_at) %> ago - <%= link_to "Borrar", [@article,comment], method: :delete, class:"text-danger" %>
+  		</div>
+	</div>
+</ul>

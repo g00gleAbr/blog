@@ -1,0 +1,31 @@
+<div class="container">
+	<h1><%= @article.title %></h1>
+	<center>
+		<%= image_tag @article.cover.url(:thumb), class:"img-thumbnail" %>
+	</center>
+	<div class="panel panel-default">
+		<div class="panel-body tarjeta2">
+			<%= @article.body %>
+		</div>
+	</div>
+	<div class="material-card tarjeta3 col-md-3" >
+		<h3>Categorías</h3>
+		<% @article.categories.each do |category| %>
+			<span class="label label-primary"><%= link_to category.name, category, style:"color:#FFFFFF;" %></span>
+		<%end%>
+		<h3>Visitas: </h3>
+		 <p class="text-info" style="font-size:16px;"><%= @article.visits_count %></p>
+		<%unless @article.user.nil? %>
+			<h3>Escrito por</h3> 
+			<p class="text-info" style="font-size:16px;"><%= @article.user.email %></p>
+		<%end%>
+	</div>
+	<br>
+	<div class="col-md-4">
+		<%= render "articles/comments" %>
+		<%= link_to "Editar", edit_article_path(@article) %>
+	</div>
+	<div class="col-md-4">
+		<%= render @article.comments %>
+	</div>
+</div>

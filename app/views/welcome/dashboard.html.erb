@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="alert alert-danger" style="width:20em;">Articulos pendientes a publicar</div>
+	<% @articles.each do |article| %>
+		<div class="panel panel-info">
+	  		<div class="panel-heading">
+	    		<h3 class="panel-title"><%= link_to article.title, article %></h3>
+	  		</div>
+	  		<div class="panel-body">
+	    		<%= article.body %>
+	  		</div>
+	  		<div class="panel-footer">
+	  			<%= link_to "Eliminar", article, method: :delete, class:"btn btn-danger" %>
+	  			<%if article.may_publish?%>
+					<%= link_to "Publicar","/articles/#{article.id}/publish", method: :put, class:"btn btn-success" %>
+				<%end%>
+	  		</div>
+		</div>
+	<%end%>	
+</div>
+

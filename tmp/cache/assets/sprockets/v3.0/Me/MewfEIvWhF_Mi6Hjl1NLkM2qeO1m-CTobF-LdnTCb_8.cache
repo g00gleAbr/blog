@@ -1,0 +1,7 @@
+I"Ž(function() {
+  $(document).on("ajax:success", "form#comments-form", function(ev, data) {
+    return console.log(data);
+  });
+
+}).call(this);
+:ET

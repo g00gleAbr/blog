@@ -1,0 +1,10 @@
+<div class="container">
+<h2 class="text-info">Articulos</h2>
+	<div class="row">
+		<%= render @articles%>
+	</div>
+	<br>
+	<center>
+		<%= will_paginate @articles %>
+	</center>
+</div>

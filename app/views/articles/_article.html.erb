@@ -1,0 +1,13 @@
+<div class="row" style="display:inline-block; padding:10px;">
+	<div class="col-md-12 col-xs-12 col-sm-12">
+		<div class="thumbnail">
+			<%= image_tag article.cover.url(), class:"background-cover imagen" %>
+			<div class="caption">
+					<h3><%= article.title %></h3>
+					<%= truncate(article.body) %>
+					<br>
+				<%= link_to "Ver más", article, class:"btn btn-info", role:"button" %>
+			</div>
+		</div>
+	</div>
+</div>

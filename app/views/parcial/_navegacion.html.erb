@@ -1,0 +1,32 @@
+<div style="margin-top:5px;"></div>
+<div class="container">
+  <nav class="navbar navbar-default"> 
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <p><%= link_to "CbBlog", root_path, class:"navbar-brand" %></p>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Articulos", articles_path %></li>
+              <% @categories.each do |category| %>
+                <li>
+                  <%= link_to category.name, category %>
+                </li>
+              <%end%>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to "Crear articulo", "articles/new" %></li>
+              <li><%= link_to "Dashboard", "/dashboard" %></li>
+              <li><%= link_to "Crear categoría", "categories/new" %></li>
+              <li><%= link_to "Editar cuenta", edit_user_registration_path %></li>
+              <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+            <%else%>
+              <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+              <li><%= link_to "Regístrate", new_user_registration_path %></li>
+            <%end%>
+          </ul>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="jumbotron">
+    	<%if user_signed_in? %>
+	      	<h3>Bienvenido <%= current_user.email %></h3>
+	      	<p style="font-size:15px;">Si tienes alguna duda sobre este blog, notas algún error, tienes alguna modificación escribe al correo
+	        <a href="#!">ayala.jap@gmail.com</a> y se te dará respuesta lo más pronto posible
+	      	</p>
+	      	<p style="font-size:15px;"> Si tienes más de una duda o necesitas una respuesta rápida inicia una conversación.</p>
+	      	<a class="btn btn-primary" href="https://twitter.com/abr_ap" role="button" target="_blank">Envía un mensaje &raquo;</a>
+	    <%else%>
+	    	<h3>Bienvenido alumno</h3>
+	    	<p style="font-size:15px;">Inicia sesión o registrate para acceder a más opciones.</p>
+	    	<%= link_to "Iniciar sesión", new_user_session_path %>
+    	<%end%>
+  	</div>
+</div>
